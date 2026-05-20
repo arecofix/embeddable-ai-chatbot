@@ -12,8 +12,7 @@ export const ChatBubble: React.FC<Props> = React.memo(({ message }) => {
     <div className={`chat-bubble-wrapper ${isUser ? 'user' : 'bot'}`}>
       {!isUser && (
         <div className="chat-avatar bot-avatar">
-          {/* Inicial o ícono temporal hasta que pongamos el logo */}
-          U
+          <img src="/logo-uno.jpg" alt="Bot Logo" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
         </div>
       )}
       <div className={`chat-bubble ${isUser ? 'chat-bubble-user' : 'chat-bubble-bot'}`}>

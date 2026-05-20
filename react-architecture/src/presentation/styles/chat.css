@@ -277,6 +277,7 @@
   border-radius: 20px;
   padding: 10px 16px;
   font-size: 14px;
+  color: var(--chat-text-dark);
   outline: none;
   transition: border-color 0.2s;
   background: #ffffff;

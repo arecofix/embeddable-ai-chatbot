@@ -9,7 +9,7 @@ export const ChatHeader: React.FC<Props> = React.memo(({ onClose }) => {
     <div className="chat-header">
       <div className="chat-header-info">
         <div className="chat-header-avatar">
-          U
+          <img src="/logo-uno.jpg" alt="UNO Logo" style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
           <span className="online-indicator"></span>
         </div>
         <div className="chat-header-text">
