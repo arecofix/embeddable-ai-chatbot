@@ -75,6 +75,30 @@ pnpm lint
 
 El servidor de desarrollo corre en `http://localhost:5173` por defecto.
 
+## API local (endpoint de generación)
+
+Se incluye un pequeño servidor Express para pruebas locales que expone:
+
+- `POST /generate-api` — recibe JSON `{ query: string, top_k: number }` y devuelve resultados mock.
+
+Para ejecutarlo localmente:
+
+```bash
+# Instalar dependencias (si no lo hiciste)
+pnpm install
+
+# Iniciar la API (se expone en http://localhost:8000)
+pnpm start:api
+```
+
+Ejemplo de llamada con curl (PowerShell):
+
+```bash
+curl -v -X POST http://localhost:8000/generate-api -H "Content-Type: application/json" -d '{ "query":"¿Donde queda el rio reconquista?","top_k":20 }'
+```
+
+La API responde con JSON estructurado: `{ query, top_k, results: [...] }`.
+
 ---
 
 ## Flujo de estado

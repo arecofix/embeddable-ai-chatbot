@@ -43,11 +43,22 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://api.adviceslip.com/advice");
+      const res = await fetch("http://localhost:8000/generate-api", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: input, top_k: 5 })
+      });
+      if (!res.ok) throw new Error(`API error ${res.status}`);
       const data = await res.json();
+
+      // Build a simple bot reply from the results
+      const reply = data.results && data.results.length
+        ? data.results.map(r => `- ${r.text}`).join("\n")
+        : "No se encontraron resultados.";
+
       setMessages([
         ...newMessages,
-        { from: "bot", text: data.slip.advice }
+        { from: "bot", text: reply }
       ]);
     } catch (error) {
       console.error("Error al consultar el chatbot:", error);
