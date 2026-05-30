@@ -58,16 +58,19 @@ tso01/
 
 ```bash
 # Instalar dependencias
-npm install
+pnpm install
 
 # Servidor de desarrollo con hot reload
-npm run dev
+pnpm dev
 
 # Build de producción
-npm run build
+pnpm build
 
 # Preview del build
-npm run preview
+pnpm preview
+
+# Ejecutar linter
+pnpm lint
 ```
 
 El servidor de desarrollo corre en `http://localhost:5173` por defecto.
