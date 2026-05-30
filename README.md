@@ -1,35 +1,115 @@
-# React + Vite
+# UNO Sede Informática — Landing Page
 
-Ejemplo de proyecto React con Vite y ESLint.
+Landing page institucional para la **Sede Informática de la Universidad Nacional del Oeste (UNO)**,
+desarrollada como trabajo práctico de la materia **TSO 2026**.
 
-## Inicializar el proyecto
+---
 
-Para alguien que recién descarga el repositorio:
+## Tecnologías utilizadas
 
-1. Abrir una terminal en la carpeta del proyecto.
-2. Ejecutar:
+| Tecnología | Versión | Uso |
+|---|---|---|
+| React | 19 | UI por componentes |
+| Vite | 6 | Bundler y servidor de desarrollo |
+| Bootstrap | 5.3.2 | Utilidades de layout (CDN) |
+| Bootstrap Icons | 1.11.3 | Íconos (CDN) |
+| Google Fonts (Inter) | — | Tipografía (CDN) |
 
-   ```bash
-   pnpm install
-   ```
+---
 
-3. Iniciar el servidor de desarrollo:
+## Estructura del proyecto
 
-   ```bash
-   pnpm dev
-   ```
+```
+tso01/
+├── public/
+│   └── images/           # Imágenes estáticas (logo, fotos)
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx    # Navbar fija con menú hamburguesa en mobile
+│   │   ├── Inicio.jsx    # Hero: título, subtítulo, CTA y cards de carreras
+│   │   ├── Carreras.jsx  # Grid 2×2 de carreras con modal de detalle
+│   │   ├── Facultad.jsx  # Foto + texto institucional con estadísticas
+│   │   ├── Experiencias.jsx  # Carrusel de testimonios de alumnos
+│   │   ├── Contacto.jsx  # Información de contacto institucional
+│   │   ├── Footer.jsx    # Pie de página fijo
+│   │   └── Chatbot.jsx   # Widget de chat flotante
+│   ├── App.jsx           # Componente raíz — orquesta todas las secciones
+│   ├── index.css         # Estilos globales y de todos los componentes
+│   └── main.jsx          # Punto de entrada de React
+├── index.html            # HTML base con fuentes y Bootstrap por CDN
+├── vite.config.js        # Configuración de Vite
+└── package.json
+```
 
-4. Abrir el proyecto en el navegador en `http://localhost:5173`.
+---
 
-> Si `pnpm` no está instalado globalmente, puedes usar `corepack enable` o instalarlo con `npm install -g pnpm`.
+## Paleta de colores
 
-## Scripts disponibles
+| Variable | Color | Uso |
+|---|---|---|
+| `--color-primary` | `#0D9488` (teal) | Navbar, footer, títulos, íconos |
+| `--color-secondary` | `#0369A1` (sky blue) | Botones outline, bordes |
+| `--color-accent` | `#BE185D` (rosa) | Botones de acción principal (CTA) |
+| `--color-bg` | `#F8FFFE` | Fondo general |
 
-- `pnpm dev` — inicia el servidor de desarrollo
-- `pnpm build` — genera la versión de producción
-- `pnpm preview` — sirve la versión de producción localmente
-- `pnpm lint` — ejecuta ESLint en el proyecto
+---
 
-## Descripción
+## Cómo correr el proyecto
 
-Este proyecto usa React con Vite para el desarrollo rápido y recarga en caliente.
+```bash
+# Instalar dependencias
+pnpm install
+
+# Servidor de desarrollo con hot reload
+pnpm dev
+
+# Build de producción
+pnpm build
+
+# Preview del build
+pnpm preview
+
+# Ejecutar linter
+pnpm lint
+```
+
+El servidor de desarrollo corre en `http://localhost:5173` por defecto.
+
+## API local (endpoint de generación)
+
+Se incluye un pequeño servidor Express para pruebas locales que expone:
+
+- `POST /generate-api` — recibe JSON `{ query: string, top_k: number }` y devuelve resultados mock.
+
+Para ejecutarlo localmente:
+
+```bash
+# Instalar dependencias (si no lo hiciste)
+pnpm install
+
+# Iniciar la API (se expone en http://localhost:8000)
+pnpm start:api
+```
+
+Ejemplo de llamada con curl (PowerShell):
+
+```bash
+curl -v -X POST http://localhost:8000/generate-api -H "Content-Type: application/json" -d '{ "query":"¿Donde queda el rio reconquista?","top_k":20 }'
+```
+
+La API responde con JSON estructurado: `{ query, top_k, results: [...] }`.
+
+---
+
+## Flujo de estado
+
+- El estado del **modal de carreras** (`modal`) vive en `App.jsx` y se pasa como prop a `<Inicio>` y `<Carreras>`.
+- Cuando el usuario hace click en una card de `<Inicio>`, se navega a `#carreras` y se abre el modal de esa carrera.
+- El estado del **chatbot** y el **carrusel de testimonios** es local a sus componentes (`Chatbot.jsx` y `Experiencias.jsx`).
+
+---
+
+## Ramas
+
+- `main` — versión estable
+- `feature/refactor` — rama activa de desarrollo con el rediseño visual completo
