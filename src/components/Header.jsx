@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="navbar text-white p-3">
       <a href="#inicio" className="navbar-logo" onClick={close}>
-        <img src="/images/Logo.jpg" alt="UNO - Sede Informática" />
+        <img src="/images/Logo_Footer.jpg" alt="UNO - Sede Informática" />
       </a>
 
       <button
