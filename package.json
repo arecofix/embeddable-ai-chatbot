@@ -2,6 +2,7 @@
   "name": "tso01",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@11.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,6 +23,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "pnpm": "^11.5.0",
     "vite": "^8.0.12"
   }
 }

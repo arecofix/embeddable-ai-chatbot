@@ -1,16 +1,35 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ejemplo de proyecto React con Vite y ESLint.
 
-Currently, two official plugins are available:
+## Inicializar el proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Para alguien que recién descarga el repositorio:
 
-## React Compiler
+1. Abrir una terminal en la carpeta del proyecto.
+2. Ejecutar:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+   ```bash
+   pnpm install
+   ```
 
-## Expanding the ESLint configuration
+3. Iniciar el servidor de desarrollo:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   ```bash
+   pnpm dev
+   ```
+
+4. Abrir el proyecto en el navegador en `http://localhost:5173`.
+
+> Si `pnpm` no está instalado globalmente, puedes usar `corepack enable` o instalarlo con `npm install -g pnpm`.
+
+## Scripts disponibles
+
+- `pnpm dev` — inicia el servidor de desarrollo
+- `pnpm build` — genera la versión de producción
+- `pnpm preview` — sirve la versión de producción localmente
+- `pnpm lint` — ejecuta ESLint en el proyecto
+
+## Descripción
+
+Este proyecto usa React con Vite para el desarrollo rápido y recarga en caliente.
