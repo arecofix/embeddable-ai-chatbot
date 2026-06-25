@@ -1,5 +1,17 @@
 export async function onRequest(context) {
   const { request } = context;
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: corsHeaders,
+    });
+  }
 
   try {
     const body = await request.json();
@@ -15,6 +27,7 @@ export async function onRequest(context) {
     const responseBody = await response.text();
     const headers = new Headers(response.headers);
     headers.set("Content-Type", "application/json");
+    Object.entries(corsHeaders).forEach(([key, value]) => headers.set(key, value));
 
     return new Response(responseBody, {
       status: response.status,
@@ -25,6 +38,7 @@ export async function onRequest(context) {
       status: 500,
       headers: {
         "Content-Type": "application/json",
+        ...corsHeaders,
       },
     });
   }
