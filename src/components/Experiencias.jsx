@@ -28,11 +28,11 @@ const testimonios = [
     avatar: "MG",
   },
   {
-    nombre: "Camila R.",
+    nombre: "Ezequiel Enrico Areco",
     carrera: "Analista en Informática · 2° año",
     texto:
       "«El ambiente de la sede es increíble. Hay compañerismo y siempre hay alguien dispuesto a ayudarte. Además, el hecho de que sea educación pública y de tan alta calidad es algo que valoro mucho.»",
-    avatar: "CR",
+    avatar: "EEA",
   },
   {
     nombre: "Lucía F.",
