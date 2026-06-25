@@ -76,11 +76,7 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const API_URL = import.meta.env.DEV
-        ? "/api/generate-api"
-        : "https://ragchat-carreras.onrender.com/generate-api";
-
-      const res = await fetch(API_URL, {
+      const res = await fetch("/api/generate-api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: valor, top_k: 10 }),
