@@ -58,46 +58,19 @@ tso01/
 
 ```bash
 # Instalar dependencias
-pnpm install
+npm install
 
 # Servidor de desarrollo con hot reload
-pnpm dev
+npm run dev
 
 # Build de producción
-pnpm build
+npm run build
 
 # Preview del build
-pnpm preview
-
-# Ejecutar linter
-pnpm lint
+npm run preview
 ```
 
 El servidor de desarrollo corre en `http://localhost:5173` por defecto.
-
-## API local (endpoint de generación)
-
-Se incluye un pequeño servidor Express para pruebas locales que expone:
-
-- `POST /generate-api` — recibe JSON `{ query: string, top_k: number }` y devuelve resultados mock.
-
-Para ejecutarlo localmente:
-
-```bash
-# Instalar dependencias (si no lo hiciste)
-pnpm install
-
-# Iniciar la API (se expone en http://localhost:8000)
-pnpm start:api
-```
-
-Ejemplo de llamada con curl (PowerShell):
-
-```bash
-curl -v -X POST http://localhost:8000/generate-api -H "Content-Type: application/json" -d '{ "query":"¿Donde queda el rio reconquista?","top_k":20 }'
-```
-
-La API responde con JSON estructurado: `{ query, top_k, results: [...] }`.
 
 ---
 
@@ -112,4 +85,4 @@ La API responde con JSON estructurado: `{ query, top_k, results: [...] }`.
 ## Ramas
 
 - `main` — versión estable
-- `feature/refactor` — rama activa de desarrollo con el rediseño visual completo
+- `feature/ejemplo` — rama de desarrollo para actualizaciones

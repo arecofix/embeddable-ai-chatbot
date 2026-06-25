@@ -2,20 +2,18 @@
   "name": "tso01",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@11.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "start:api": "node server.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "react-markdown": "^10.1.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -26,8 +24,6 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
-    "pnpm": "^11.5.0",
-    "vite": "^8.0.12",
-    "wrangler": "^4.95.0"
+    "vite": "^8.0.12"
   }
 }
