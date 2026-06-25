@@ -7,8 +7,9 @@
  *   - `actual` (number): índice del testimonio actualmente visible (0-based).
  *
  * Para agregar o editar testimonios, modificar el array `testimonios`
- * con objetos: { nombre, carrera, texto, avatar }.
+ * con objetos: { nombre, carrera, texto, avatar, imagen? }.
  * `avatar` es un string de 2 letras que se muestra como iniciales.
+ * `imagen` (opcional) es una ruta a la imagen que reemplaza el avatar.
  */
 import { useState } from "react";
 
@@ -33,6 +34,7 @@ const testimonios = [
     texto:
       "«El ambiente de la sede es increíble. Hay compañerismo y siempre hay alguien dispuesto a ayudarte. Además, el hecho de que sea educación pública y de tan alta calidad es algo que valoro mucho.»",
     avatar: "EEA",
+    imagen: "images/yop.jpeg",
   },
   {
     nombre: "Lucía F.",
@@ -63,7 +65,11 @@ export default function Experiencias() {
         </button>
 
         <div className="carrusel-card">
-          <div className="carrusel-avatar">{t.avatar}</div>
+          {t.imagen ? (
+            <img src={t.imagen} alt={t.nombre} className="carrusel-imagen" />
+          ) : (
+            <div className="carrusel-avatar">{t.avatar}</div>
+          )}
           <p className="carrusel-texto">{t.texto}</p>
           <p className="carrusel-nombre">{t.nombre}</p>
           <p className="carrusel-carrera">{t.carrera}</p>
